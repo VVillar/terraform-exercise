@@ -2,10 +2,9 @@ variable "location" {
   default = "East US"
 }
 
-variable "prefix" {
-  default = "hello"
+variable "suffix" {
+  default = "terraform"
 }
-
 variable "admin_username" {
   default = "azureuser"
 }

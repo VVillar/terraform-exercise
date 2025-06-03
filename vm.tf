@@ -1,5 +1,5 @@
 resource "azurerm_network_interface" "nic" {
-  name                = "${var.prefix}-nic"
+  name                = "nic-${var.suffix}"
   location            = var.location
   resource_group_name = azurerm_resource_group.rg.name
 
@@ -11,7 +11,7 @@ resource "azurerm_network_interface" "nic" {
 }
 
 resource "azurerm_linux_virtual_machine" "vm" {
-  name                = "${var.prefix}-vm"
+  name                = "vm-${var.suffix}"
   resource_group_name = azurerm_resource_group.rg.name
   location            = var.location
   size                = "Standard_B1s"
@@ -23,7 +23,7 @@ resource "azurerm_linux_virtual_machine" "vm" {
   os_disk {
     caching              = "ReadWrite"
     storage_account_type = "Standard_LRS"
-    name                 = "${var.prefix}-osdisk"
+    name                 = "${var.suffix}-osdisk"
   }
 
   source_image_reference {
